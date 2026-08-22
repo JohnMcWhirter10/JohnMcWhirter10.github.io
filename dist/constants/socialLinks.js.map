@@ -1,1 +1,0 @@
-{"version":3,"file":"socialLinks.js","sourceRoot":"","sources":["../../src/constants/socialLinks.ts"],"names":[],"mappings":";;;AACA,sDAAuD;AAE1C,QAAA,WAAW,GAAkB;IACxC;QACE,IAAI,EAAE,QAAQ;QACd,IAAI,EAAE,oCAAoC;QAC1C,IAAI,EAAE,uBAAM;KACb;IACD;QACE,IAAI,EAAE,UAAU;QAChB,IAAI,EAAE,gDAAgD;QACtD,IAAI,EAAE,yBAAQ;KACf;CACF,CAAC"}

@@ -15,6 +15,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -26,7 +27,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+.env
+.env.*
+!.env.example
 
 # vercel
 .vercel
@@ -38,7 +41,6 @@ next-env.d.ts
 
 # Dependency directories
 package-lock.json
-# Compiled output
 
 # icons
 /devicons
