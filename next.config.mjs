@@ -23,15 +23,8 @@ const nextConfig = {
 	typescript: {
 		ignoreBuildErrors: true,
 	},
-	// Fix hot reload for WSL/Windows
-	webpack: (config, { isServer }) => {
-		if (!isServer) {
-			config.watchOptions = {
-				poll: 1000, // Check for changes every second
-				aggregateTimeout: 300, // Delay before rebuilding
-			};
-		}
-		return config;
+	turbopack: {
+		root: import.meta.dirname,
 	},
 };
 
