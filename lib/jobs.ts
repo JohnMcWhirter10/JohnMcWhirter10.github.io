@@ -2,15 +2,26 @@ import type { JobType } from './types';
 
 export const jobs: JobType[] = [
 	{
+		title: 'Application Engineer',
+		companyTitle: 'Vanguard',
+		location: 'Malvern, PA',
+		startDate: 'January 20, 2026',
+		endDate: 'Present',
+		bulletPoints: [
+			'Build applications and services that enable the business, using AWS, Appian, and AI tooling.',
+		],
+		technologies: ['AWS', 'Appian', 'AI'],
+	},
+	{
 		title: 'Paycom Payroll Software Developer',
 		companyTitle: 'Paycom Payroll, LLC.',
 		location: 'Dallas, Texas',
 		startDate: 'June 2023',
 		endDate: 'October 2024',
 		bulletPoints: [
-			'Maintained the Documents, Checklists, and E-Verify HCM Software with PHP, MySQL, and React TypeScript',
-			'Achieved 90% REST API performance improvement via database query optimization and algorithms',
+			'Maintained Documents, Checklists, and E-Verify HCM software in PHP, MySQL, and React TypeScript, including a 90% REST API performance gain from query and algorithm work.',
 		],
+		technologies: ['PHP', 'MySQL', 'React', 'TypeScript'],
 	},
 	{
 		title: 'Applications Engineering Intern',
@@ -19,9 +30,9 @@ export const jobs: JobType[] = [
 		startDate: 'May 2022',
 		endDate: 'August 2022',
 		bulletPoints: [
-			'Debugged High Speed Converters (≥10 MSPS) with Applications Engineers in Electrical Labs',
-			'Developed a C and Python Tkinter GUI generator to automatically package Vivado configurations for clients',
+			'Debugged high-speed converters (≥10 MSPS) in the lab and built a C/Python Tkinter GUI generator that packaged Vivado configurations for clients.',
 		],
+		technologies: ['C', 'Python'],
 	},
 	{
 		title: 'Software Engineer (Contract)',
@@ -30,11 +41,9 @@ export const jobs: JobType[] = [
 		startDate: 'April 2022',
 		endDate: 'May 2022',
 		bulletPoints: [
-			'Designed and developed a professional photo gallery for a photographer with responsive design for optimal viewing across devices.',
-			'Created intuitive user interface for photo browsing and showcase, optimizing image loading and rendering for performance.',
-			'Architected scalable solution to accommodate future features (online scheduling and payment system).',
-			'Successfully managed and organized 100+ professional photographs while maintaining effective client communication.',
+			'Designed and shipped a responsive photographer gallery with optimized image loading and a path to scheduling and payments.',
 		],
+		technologies: ['Next.js', 'React'],
 	},
 	{
 		title: 'Ropes Counselor',
@@ -43,11 +52,9 @@ export const jobs: JobType[] = [
 		startDate: 'May 2020',
 		endDate: 'July 2020',
 		bulletPoints: [
-			'Supervised and cared for groups of 8-12 campers (ages 7-17) in a mountain forest environment.',
-			'Operated and maintained Mountain Adventure equipment, including ziplines and high ropes courses.',
-			'Conducted safety checks and properly harnessed campers for elevated activities, maintaining CPR Certification and first aid training.',
-			'Created memorable experiences for campers through adventure activities while balancing safety requirements.',
+			'Led groups of 8–12 campers on high ropes and zipline programs with daily safety checks, harnessing, and first-aid coverage.',
 		],
+		technologies: [],
 	},
 	{
 		title: 'Farm Hand',
@@ -56,11 +63,9 @@ export const jobs: JobType[] = [
 		startDate: 'October 2012',
 		endDate: 'May 2022',
 		bulletPoints: [
-			'Used drone technology to map fields for plant health assessment and crop analysis, improving yield predictions.',
-			'Operated advanced machinery and managed critical irrigation systems including center pivot systems and well pumps.',
-			'Resolved mechanical issues in equipment, ensuring uninterrupted farming operations with precision.',
-			'Managed multiple crops including cotton, peanuts, corn, and watermelon across various farm locations.',
+			'Mapped fields with drones for plant-health analysis and ran irrigation and machinery across cotton, peanut, corn, and watermelon operations.',
 		],
+		technologies: [],
 	},
 	{
 		title: 'Campus Ambassador',
@@ -69,9 +74,9 @@ export const jobs: JobType[] = [
 		startDate: 'August 2019',
 		endDate: 'December 2019',
 		bulletPoints: [
-			'Represented the student body at new student recruitment events, scholarship gala and various media outlets',
-			'Gave campus tours to prospective students and special guests of the College',
+			'Represented the college at recruitment events and led campus tours for prospective students and guests.',
 		],
+		technologies: [],
 	},
 	{
 		title: 'Math Tutor',
@@ -80,9 +85,9 @@ export const jobs: JobType[] = [
 		startDate: 'August 2018',
 		endDate: 'December 2019',
 		bulletPoints: [
-			'Delivered technical instruction across multiple mathematics subjects to a diverse range of students',
-			'Collaborated with professors to develop effective teaching strategies for diverse student populations',
+			'Tutored students across multiple mathematics courses and coordinated methods with faculty.',
 		],
+		technologies: [],
 	},
 	{
 		title: 'UIL Invitational Speech Competition Judge',
@@ -91,8 +96,8 @@ export const jobs: JobType[] = [
 		startDate: 'March 2019',
 		endDate: undefined,
 		bulletPoints: [
-			"Evaluated competitors' speeches for clarity, originality, and emotional impact, providing constructive feedback.",
-			'Judged prose, poetry, and informative categories, fostering excellence in communication and performance.',
+			'Judged prose, poetry, and informative speeches on clarity, originality, and impact.',
 		],
+		technologies: [],
 	},
 ];
