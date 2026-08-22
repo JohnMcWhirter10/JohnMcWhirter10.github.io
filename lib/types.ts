@@ -1,15 +1,15 @@
 import { StaticImageData } from 'next/image';
-import type React from 'react';
 
 export interface SectionContentProps {
 	content: string;
 }
 
+export type SectionId = 'about' | 'experience' | 'projects' | 'education' | 'connect';
+
 export interface SectionType {
-	id: string;
+	id: SectionId;
 	title: string;
 	content: string;
-	theme: string;
 }
 
 export interface JobType {
@@ -28,11 +28,6 @@ export interface ProjectType {
 	link?: string;
 	image: StaticImageData;
 	categories: string[];
-}
-
-export interface TechnologyType {
-	label: string;
-	icon: React.ReactNode;
 }
 
 export interface ActivityType {

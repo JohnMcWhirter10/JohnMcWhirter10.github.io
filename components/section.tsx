@@ -8,7 +8,6 @@ import Experience from './sections/experience';
 import ProjectsSection from './sections/projects';
 import Education from './sections/education';
 import Connect from './sections/connect';
-import { cn } from '@/lib/utils';
 
 const sectionVariants = {
 	hidden: { opacity: 0, y: 20 },
@@ -36,7 +35,6 @@ type SectionProps = {
 	id: string;
 	title: string;
 	content: string;
-	theme?: string;
 };
 
 export const Section = forwardRef<HTMLElement, SectionProps>(({ id, title, content }, ref) => {
@@ -79,9 +77,7 @@ export const Section = forwardRef<HTMLElement, SectionProps>(({ id, title, conte
 		<section
 			ref={setRefs}
 			id={id}
-			className={cn(
-				'w-full flex flex-col md:flex-row items-center justify-center relative bg-background text-foreground'
-			)}
+			className='w-full flex flex-col md:flex-row items-center justify-center relative bg-background text-foreground'
 		>
 			<motion.div
 				className='w-full h-full max-w-7xl mx-auto px-4 py-12 md:py-16 flex flex-col items-center relative z-10'

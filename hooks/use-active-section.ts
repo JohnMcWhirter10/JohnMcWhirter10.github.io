@@ -1,9 +1,8 @@
 'use client';
 
 import { useEffect, useState, type RefObject } from 'react';
+import { MOBILE_BREAKPOINT, MOBILE_HEADER_PX } from '@/lib/scroll';
 
-const MOBILE_BREAKPOINT = 768;
-const MOBILE_HEADER_PX = 64;
 const SENTINEL_FRACTION = 0.25;
 
 export function useActiveSection(

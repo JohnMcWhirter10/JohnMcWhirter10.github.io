@@ -8,6 +8,7 @@ import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import { useActiveSection } from '@/hooks/use-active-section';
+import { isMobileViewport, scrollToSection } from '@/lib/scroll';
 
 const sectionIds = sections.map((section) => section.id);
 
@@ -19,11 +20,7 @@ export default function Home() {
 	const navigateToSection = (index: number) => {
 		const sectionRef = sectionRefs.current[index];
 		if (sectionRef) {
-			const mobileOffset = window.innerWidth < 768 ? 64 : 0;
-			window.scrollTo({
-				top: sectionRef.offsetTop - mobileOffset,
-				behavior: 'smooth',
-			});
+			scrollToSection(sectionRef, { isMobile: isMobileViewport() });
 		}
 	};
 
@@ -77,7 +74,6 @@ export default function Home() {
 						id={section.id}
 						title={section.title}
 						content={section.content}
-						theme={section.theme}
 					/>
 				))}
 			</main>
