@@ -1,9 +1,6 @@
-import { useState } from 'react';
 import Image from 'next/image';
-import { Card, CardContent } from '../ui/card';
 import type { ProjectType, SectionContentProps } from '@/lib/types';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '../ui/button';
+import { ContentRow } from '@/components/content-row';
 
 import BPhotography from '@/assets/images/b-photography.png';
 import VectorVetted from '@/assets/images/vectorVettedLogo.png';
@@ -12,73 +9,6 @@ import TexasInstruments from '@/assets/images/TexasInstruments.png';
 import MondrianUI from '@/assets/images/mondrian-ui.png';
 import Avalon from '@/assets/images/Avalon.png';
 import DCCapture from '@/assets/images/DC_Capture.png';
-
-import AWSIcon from '@/components/icons/AWS';
-import CSS3Icon from '@/components/icons/CSS3';
-import GitIcon from '@/components/icons/Git';
-import HTML5Icon from '@/components/icons/HTML5';
-import JavaScriptIcon from '@/components/icons/JavaScript';
-import MySQLIcon from '@/components/icons/MySQL';
-import NextJSIcon from '@/components/icons/NextJSIcon';
-import PHPIcon from '@/components/icons/PHP';
-import PythonIcon from '@/components/icons/Python';
-import ReactIcon from '@/components/icons/React';
-import TypeScriptIcon from '@/components/icons/TypeScript';
-import VercelIcon from '@/components/icons/Vercel';
-
-export const technologies = [
-	// Programming Languages
-	{
-		label: 'Python',
-		icon: <PythonIcon size={32} />,
-	},
-	{
-		label: 'JavaScript',
-		icon: <JavaScriptIcon size={32} />,
-	},
-	{
-		label: 'TypeScript',
-		icon: <TypeScriptIcon size={32} />,
-	},
-	{
-		label: 'PHP',
-		icon: <PHPIcon size={32} />,
-	},
-	{
-		label: 'SQL',
-		icon: <MySQLIcon size={32} />,
-	},
-	// Web Frameworks & Technologies
-	{
-		label: 'React',
-		icon: <ReactIcon size={32} />,
-	},
-	{
-		label: 'HTML5',
-		icon: <HTML5Icon size={32} />,
-	},
-	{
-		label: 'CSS3',
-		icon: <CSS3Icon size={32} />,
-	},
-	{
-		label: 'Next.js',
-		icon: <NextJSIcon size={32} />,
-	},
-	// Cloud & Tools
-	{
-		label: 'AWS',
-		icon: <AWSIcon size={32} />,
-	},
-	{
-		label: 'Vercel',
-		icon: <VercelIcon size={32} />,
-	},
-	{
-		label: 'Git',
-		icon: <GitIcon size={32} />,
-	},
-];
 
 const projects: ProjectType[] = [
 	{
@@ -138,148 +68,24 @@ const projects: ProjectType[] = [
 ];
 
 const ProjectsSection = ({}: SectionContentProps) => {
-	const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-	const [expandedDescriptions, setExpandedDescriptions] = useState<{ [key: string]: boolean }>({});
-
-	const toggleDescription = (projectTitle: string) => {
-		setExpandedDescriptions((prev) => ({
-			...prev,
-			[projectTitle]: !prev[projectTitle],
-		}));
-	};
-
-	const allCategories = Array.from(new Set(projects.flatMap((project) => project.categories))).sort();
-
-	const filteredProjects = selectedCategory
-		? projects.filter((project) => project.categories.includes(selectedCategory))
-		: projects;
-
-	const projectItems = filteredProjects.map((project, index) => (
-		<motion.div
-			whileHover={{ y: -5, transition: { duration: 0.2 } }}
-			initial={{ opacity: 0, y: 20 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.5, delay: index * 0.1 }}
-			key={project.title}
-			layout
-		>
-			<Card className='h-full border-2 border-primary bg-card/50 backdrop-blur-xs hover:shadow-lg transition-all duration-300 overflow-hidden'>
-				<CardContent className='p-6'>
-					<div className='aspect-video w-full mb-4 overflow-hidden rounded-lg relative group'>
-						<Image
-							src={project.image || '/placeholder.svg'}
-							alt={project.title}
-							className='w-full h-full object-contain transition-transform duration-500 group-hover:scale-105'
-						/>
-						{project.link && (
-							<div className='absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-								<a
-									href={project.link}
-									target='_blank'
-									rel='noopener noreferrer'
-									className='text-white bg-primary hover:bg-primary/80 transition-colors px-4 py-2 rounded-lg text-sm font-medium'
-								>
-									View Project
-								</a>
-							</div>
-						)}
-					</div>
-					<h3 className='text-xl font-bold text-foreground'>{project.title}</h3>
-					<div className='flex flex-wrap gap-1 mt-1 mb-2'>
-						{project.categories.map((category) => (
-							<span
-								key={`${project.title}-${category}`}
-								className='inline-block px-2 py-1 text-xs rounded-lg bg-primary/10 text-primary'
-							>
-								{category}
-							</span>
-						))}
-					</div>
-					<div className='mt-2 mb-4'>
-						<p
-							className={`text-sm text-muted-foreground ${
-								!expandedDescriptions[project.title] ? 'line-clamp-1' : ''
-							}`}
-						>
-							{project.description}
-						</p>
-						{project.description.length > 150 && (
-							<button
-								onClick={() => toggleDescription(project.title)}
-								className='text-xs text-primary mt-1 hover:underline font-medium'
-							>
-								{expandedDescriptions[project.title] ? 'Show less' : 'Read more'}
-							</button>
-						)}
-					</div>
-				</CardContent>
-			</Card>
-		</motion.div>
-	));
-
 	return (
 		<div className='w-full'>
-			<div className='mb-10'>
-				<h3 className='text-2xl font-bold mb-6 text-center'>Technologies</h3>
-				<div className='flex flex-wrap justify-center md:gap-8 mb-12'>
-					{technologies.map((tech, index) => (
-						<motion.div
-							key={index}
-							className='flex flex-col items-center justify-end gap-2 p-3'
-							whileHover={{ scale: 1.1 }}
-							transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-						>
-							<div className='p-3 rounded-lg bg-background border-2 border-primary shadow-xs'>
-								{tech.icon}
-							</div>
-							<span className='text-sm font-medium'>{tech.label}</span>
-						</motion.div>
-					))}
-				</div>
-			</div>
-
-			<div className='mb-8'>
-				<div className='flex flex-col sm:flex-row items-center justify-between gap-4 mb-6'>
-					<div className='flex flex-wrap justify-center gap-2'>
-						<Button
-							variant={selectedCategory === null ? 'default' : 'outline'}
-							size='sm'
-							onClick={() => setSelectedCategory(null)}
-							className='rounded-lg'
-						>
-							All
-						</Button>
-
-						{allCategories.map((category) => (
-							<Button
-								key={category}
-								variant={selectedCategory === category ? 'default' : 'outline'}
-								size='sm'
-								onClick={() => setSelectedCategory(category)}
-								className='rounded-lg'
-							>
-								{category}
-							</Button>
-						))}
-					</div>
-				</div>
-
-				<AnimatePresence>
-					<motion.div layout className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative'>
-						{projectItems.length > 0 ? (
-							projectItems
-						) : (
-							<motion.p
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1 }}
-								className='col-span-full text-center text-muted-foreground py-12'
-							>
-								No projects found in this category.
-							</motion.p>
-						)}
-					</motion.div>
-				</AnimatePresence>
-			</div>
+			{projects.map((project) => (
+				<ContentRow
+					key={project.title}
+					title={project.title}
+					body={project.description}
+					tags={project.categories}
+					href={project.link}
+					leading={
+						<Image
+							src={project.image}
+							alt={project.title}
+							className='h-14 w-20 md:h-16 md:w-24 object-cover rounded-md'
+						/>
+					}
+				/>
+			))}
 		</div>
 	);
 };
