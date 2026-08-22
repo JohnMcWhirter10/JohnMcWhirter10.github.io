@@ -29,7 +29,6 @@ export const activities: ActivityType[] = [
 		title: 'TAMU Robomasters',
 		description:
 			'Participated in this competitive robotics team for one semester, though participation was limited due to the COVID-19 pandemic.',
-		link: 'https://tamurobomaster.com/',
 	},
 	{
 		title: 'Breakaway Ministries Volunteer',

@@ -59,7 +59,7 @@ const Connect = ({ content }: SectionContentProps) => {
 	];
 
 	return (
-		<div ref={ref} className='w-full max-w-4xl mx-auto px-4 sm:px-6'>
+		<div ref={ref} className='w-full'>
 			<div className='flex flex-col md:flex-row gap-6'>
 				<motion.div
 					className='md:w-1/2 w-full'
@@ -178,7 +178,7 @@ const Connect = ({ content }: SectionContentProps) => {
 
 								<div className='flex items-center'>
 									<MapPin size={18} className='mr-2 text-muted-foreground' />
-									<p className='text-muted-foreground text-base md:text-lg'>Lubbock, Texas</p>
+									<p className='text-muted-foreground text-base md:text-lg'>Malvern, PA</p>
 								</div>
 
 								<p className='text-base md:text-lg text-muted-foreground pt-2'>{content}</p>

@@ -64,7 +64,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<main className='w-full md:ml-0 pt-16 md:pt-0'>
+			<main className='flex-1 min-w-0 pt-16 md:pt-0'>
 				{sections.map((section, index) => (
 					<Section
 						key={section.id}

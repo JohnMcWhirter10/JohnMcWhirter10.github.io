@@ -14,11 +14,15 @@ const ProjectsSection = ({}: SectionContentProps) => {
 					tags={project.categories}
 					href={project.link}
 					leading={
-						<Image
-							src={project.image}
-							alt={project.title}
-							className='h-14 w-20 md:h-16 md:w-24 object-cover rounded-md'
-						/>
+						<div className='relative w-40 sm:w-48 md:w-56 lg:w-72 aspect-[16/10] rounded-md bg-muted/40'>
+							<Image
+								src={project.image}
+								alt={project.title}
+								fill
+								className='object-contain'
+								sizes='(max-width: 768px) 160px, (max-width: 1024px) 224px, 288px'
+							/>
+						</div>
 					}
 				/>
 			))}

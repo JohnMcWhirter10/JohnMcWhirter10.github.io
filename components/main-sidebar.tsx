@@ -26,7 +26,7 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection }: MainSideba
 
 	return (
 		<Sidebar className='border-r-2 border-primary backdrop-blur-xs'>
-			<SidebarHeader className='py-8 flex flex-col items-center'>
+			<SidebarHeader className='hidden max-md:flex min-[992px]:flex py-8 flex-col items-center'>
 				<motion.div
 					initial={{ opacity: 0, y: -20 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,7 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection }: MainSideba
 				</motion.div>
 			</SidebarHeader>
 
-			<SidebarContent className='h-full flex flex-col justify-between'>
+			<SidebarContent className='h-full flex flex-col justify-between overflow-hidden'>
 				<nav className='flex flex-col gap-2 px-2'>
 					{sections.map((section, i) => {
 						const isActive = activeSection === section.id;
@@ -85,7 +85,7 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection }: MainSideba
 					className='flex items-center justify-center gap-2 px-4 py-2 mb-2 rounded-lg transition-all duration-200 hover:bg-primary/10 text-primary font-medium'
 				>
 					<Download size={16} />
-					<span>Download Resume</span>
+					<span>Resume</span>
 				</Link>
 				<p>© {new Date().getFullYear()} John McWhirter</p>
 			</SidebarFooter>

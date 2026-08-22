@@ -11,6 +11,7 @@ export const jobs: JobType[] = [
 			'Build applications and services that enable the business, using AWS, Appian, and AI tooling.',
 		],
 		technologies: ['AWS', 'Appian', 'AI'],
+		companyUrl: 'https://www.vanguard.com',
 	},
 	{
 		title: 'Paycom Payroll Software Developer',
@@ -22,6 +23,7 @@ export const jobs: JobType[] = [
 			'Maintained Documents, Checklists, and E-Verify HCM software in PHP, MySQL, and React TypeScript, including a 90% REST API performance gain from query and algorithm work.',
 		],
 		technologies: ['PHP', 'MySQL', 'React', 'TypeScript'],
+		companyUrl: 'https://www.paycom.com',
 	},
 	{
 		title: 'Applications Engineering Intern',
@@ -33,6 +35,7 @@ export const jobs: JobType[] = [
 			'Debugged high-speed converters (≥10 MSPS) in the lab and built a C/Python Tkinter GUI generator that packaged Vivado configurations for clients.',
 		],
 		technologies: ['C', 'Python'],
+		companyUrl: 'https://www.ti.com',
 	},
 	{
 		title: 'Software Engineer (Contract)',
@@ -55,6 +58,7 @@ export const jobs: JobType[] = [
 			'Led groups of 8–12 campers on high ropes and zipline programs with daily safety checks, harnessing, and first-aid coverage.',
 		],
 		technologies: [],
+		companyUrl: 'https://www.camptimberline.com',
 	},
 	{
 		title: 'Farm Hand',
@@ -77,6 +81,7 @@ export const jobs: JobType[] = [
 			'Represented the college at recruitment events and led campus tours for prospective students and guests.',
 		],
 		technologies: [],
+		companyUrl: 'https://www.southplainscollege.edu',
 	},
 	{
 		title: 'Math Tutor',
@@ -88,6 +93,7 @@ export const jobs: JobType[] = [
 			'Tutored students across multiple mathematics courses and coordinated methods with faculty.',
 		],
 		technologies: [],
+		companyUrl: 'https://www.southplainscollege.edu',
 	},
 	{
 		title: 'UIL Invitational Speech Competition Judge',
@@ -99,5 +105,6 @@ export const jobs: JobType[] = [
 			'Judged prose, poetry, and informative speeches on clarity, originality, and impact.',
 		],
 		technologies: [],
+		companyUrl: 'https://www.southplainscollege.edu',
 	},
 ];

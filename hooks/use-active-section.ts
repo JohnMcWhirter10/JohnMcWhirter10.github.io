@@ -4,6 +4,7 @@ import { useEffect, useState, type RefObject } from 'react';
 import { MOBILE_BREAKPOINT, MOBILE_HEADER_PX } from '@/lib/scroll';
 
 const SENTINEL_FRACTION = 0.25;
+const BOTTOM_PX = 8;
 
 export function useActiveSection(
 	sectionRefs: RefObject<(HTMLElement | null)[]>,
@@ -18,6 +19,13 @@ export function useActiveSection(
 			ticking = false;
 			const ids = sectionIds;
 			if (ids.length === 0) return;
+
+			const root = document.scrollingElement ?? document.documentElement;
+			const atBottom = root.scrollTop + window.innerHeight >= root.scrollHeight - BOTTOM_PX;
+			if (atBottom) {
+				setActiveSection(ids[ids.length - 1]);
+				return;
+			}
 
 			const sentinel =
 				(window.innerWidth < MOBILE_BREAKPOINT ? MOBILE_HEADER_PX : 0) +

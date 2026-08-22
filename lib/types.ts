@@ -20,6 +20,7 @@ export interface JobType {
 	endDate?: string;
 	bulletPoints: string[];
 	technologies: string[];
+	companyUrl?: string;
 }
 
 export interface ProjectType {
@@ -33,5 +34,5 @@ export interface ProjectType {
 export interface ActivityType {
 	title: string;
 	description: string;
-	link: string;
+	link?: string;
 }
