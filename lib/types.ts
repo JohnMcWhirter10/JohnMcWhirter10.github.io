@@ -19,6 +19,7 @@ export interface JobType {
 	startDate: string;
 	endDate?: string;
 	bulletPoints: string[];
+	technologies: string[];
 }
 
 export interface ProjectType {
