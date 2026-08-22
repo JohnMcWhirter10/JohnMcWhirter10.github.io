@@ -156,11 +156,12 @@ const Connect = ({ content }: SectionContentProps) => {
 															size='icon'
 															className='rounded-lg p-0'
 														>
-															<Link
-																href={href}
-																target='_blank'
-																className={`w-9 h-9 flex items-center justify-center rounded-lg text-white ${color}`}
-															>
+							<Link
+								href={href}
+								target='_blank'
+								rel='noopener noreferrer'
+								className={`w-9 h-9 flex items-center justify-center rounded-lg text-white ${color}`}
+							>
 																<Icon size={18} />
 															</Link>
 														</Button>

@@ -61,6 +61,7 @@ const Education = ({ content }: SectionContentProps) => {
 							href={activity.link}
 							className='hover:underline hover:text-primary/80 transition-colors flex items-center gap-1'
 							target='_blank'
+							rel='noopener noreferrer'
 						>
 							{activity.title}
 							<svg
