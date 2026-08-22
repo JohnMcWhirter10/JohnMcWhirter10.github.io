@@ -174,6 +174,13 @@
 		--sidebar-ring: 217.2 91.2% 59.8%;
 	}
 
+	.theme-tamu {
+		--primary: 0 100% 16%;
+		--primary-foreground: 0 0% 100%;
+		--border: 0 41% 35%;
+		--ring: 0 100% 16%;
+	}
+
 	.aggie {
 		/* Official Aggie Maroon color schemes */
 		--background: 0 100% 16%; /* #500000 - Primary Aggie Maroon */

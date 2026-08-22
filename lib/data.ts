@@ -24,8 +24,8 @@ export const sections: SectionType[] = [
 		id: 'education',
 		title: 'Education',
 		content:
-			'I am currently pursuing a Master\'s in Computer Science and Engineering at Texas A&M University (August 2025 - December 2027). I graduated from Texas A&M University in 2023 with a degree in Computer and Electrical Engineering. I completed my degree in an accelerated timeframe through transfer credits and concurrent enrollment at Blinn College, having previously studied at South Plains College where I maintained a 4.0 GPA and was selected as a NASA Community College Aerospace Scholar.',
-		theme: 'aggie',
+			'I graduated from Texas A&M University in 2023 with a degree in Computer and Electrical Engineering. I finished on an accelerated path through transfer credit and concurrent enrollment at Blinn College, after South Plains College, where I held a 4.0 GPA and was named a NASA Community College Aerospace Scholar.',
+		theme: 'system',
 	},
 	{
 		id: 'connect',
