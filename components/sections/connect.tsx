@@ -3,9 +3,9 @@ import { useRef, useState } from 'react';
 import { GithubIcon, InstagramIcon, LinkedinIcon, MailIcon, MapPin, Send } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { create } from '@/lib/actions';
+import { ContactSchema, type ContactValues } from '@/lib/contact-schema';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
@@ -14,12 +14,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { motion, useInView } from 'framer-motion';
 import { SectionContentProps } from '@/lib/types';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-
-const ContactSchema = z.object({
-	name: z.string().trim().min(1, 'Name is required').max(15, 'Max 15 characters'),
-	email: z.string().trim().min(1, 'Email is required').email('Invalid email'),
-	message: z.string().trim().min(1, 'Message is required').max(200, 'Max 200 characters'),
-});
 
 const Connect = ({ content }: SectionContentProps) => {
 	const ref = useRef(null);
@@ -30,7 +24,7 @@ const Connect = ({ content }: SectionContentProps) => {
 		defaultValues: { name: '', email: '', message: '' },
 	});
 
-	const onSubmit = async (values: { name: string; email: string; message: string }) => {
+	const onSubmit = async (values: ContactValues) => {
 		try {
 			const formData = new FormData();
 			formData.append('name', values.name);
