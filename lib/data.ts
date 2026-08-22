@@ -5,7 +5,7 @@ export const sections: SectionType[] = [
 		id: 'about',
 		title: 'About',
 		content:
-			"I specialize in front-end development with an emphasis on creating clean, efficient interfaces and optimizing performance. For the past 3 years, I've been building maintainable applications using component-based architectures, applying both technical precision and aesthetic considerations to create intuitive user experiences. I have a passion for solving complex problems and driving projects across the finish line.",
+			'I design systems that make work more efficient. As a Solutions Architect I map messy processes, cut friction from workflows, and ship the applications, automation, and architecture that let teams move faster with fewer handoffs.',
 		theme: 'system',
 	},
 	{

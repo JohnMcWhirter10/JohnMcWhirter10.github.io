@@ -133,7 +133,7 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection, setActiveSec
 							isAggieTheme && 'text-white/80'
 						)}
 					>
-						Software Engineer
+						Solutions Architect
 					</p>
 				</motion.div>
 			</SidebarHeader>
