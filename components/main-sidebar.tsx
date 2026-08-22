@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import type { SectionType } from '@/lib/types';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from '@/components/ui/sidebar';
-import { useTheme } from 'next-themes';
 import { Download } from 'lucide-react';
 import Link from 'next/link';
 
@@ -17,9 +16,6 @@ type MainSidebarProps = {
 };
 
 export const MainSidebar = ({ sections, sectionRefs, activeSection, setActiveSection }: MainSidebarProps) => {
-	const { theme, setTheme } = useTheme();
-	const isAggieTheme = theme === 'aggie';
-
 	const handleNavClick = (e: React.MouseEvent<HTMLButtonElement>, sectionId: string, index: number) => {
 		e.preventDefault();
 		const sectionRef = sectionRefs.current[index];
@@ -42,9 +38,6 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection, setActiveSec
 
 					if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
 						setActiveSection(section.id);
-						if (section.theme) {
-							setTheme(section.theme);
-						}
 					}
 				},
 				{
@@ -70,9 +63,6 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection, setActiveSec
 
 					if (section && section.offsetTop <= current) {
 						setActiveSection(sections[i].id);
-						if (sections[i].theme) {
-							setTheme(sections[i].theme);
-						}
 						break;
 					}
 				}
@@ -89,10 +79,6 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection, setActiveSec
 
 					if (rect.top < viewportHeight * 0.5 && rect.bottom > viewportHeight * 0.5) {
 						setActiveSection('projects');
-						const projectsTheme = sections[projectsIndex].theme;
-						if (projectsTheme) {
-							setTheme(projectsTheme);
-						}
 					}
 				}
 			}
@@ -109,30 +95,20 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection, setActiveSec
 			window.removeEventListener('scroll', handleScroll);
 			window.removeEventListener('scroll', checkProjectsSection);
 		};
-	}, [sections, sectionRefs, setActiveSection, activeSection, setTheme]);
+	}, [sections, sectionRefs, setActiveSection, activeSection]);
 
 	return (
-		<Sidebar
-			className={cn(
-				'border-r-2 border-primary backdrop-blur-xs',
-				isAggieTheme && 'bg-[#500000] border-[#3c0000]/60'
-			)}
-		>
+		<Sidebar className='border-r-2 border-primary backdrop-blur-xs'>
 			<SidebarHeader className='py-8 flex flex-col items-center'>
 				<motion.div
 					initial={{ opacity: 0, y: -20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5 }}
 				>
-					<h1 className={cn('text-2xl font-bold tracking-tight', isAggieTheme && 'text-white')}>
+					<h1 className='text-2xl font-bold tracking-tight'>
 						John McWhirter
 					</h1>
-					<p
-						className={cn(
-							'text-sm text-muted-foreground text-center mt-1',
-							isAggieTheme && 'text-white/80'
-						)}
-					>
+					<p className='text-sm text-muted-foreground text-center mt-1'>
 						Solutions Architect
 					</p>
 				</motion.div>
@@ -157,19 +133,13 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection, setActiveSec
 										'w-full flex items-center gap-2 py-3 px-4 rounded-lg text-left transition-all duration-200',
 										isActive
 											? 'bg-primary/10 text-primary font-medium'
-											: 'hover:bg-accent/50 text-muted-foreground',
-										isAggieTheme && isActive
-											? 'bg-[#732F2F]/30 text-white font-medium'
-											: isAggieTheme && 'hover:bg-[#732F2F]/20 text-white/80'
+											: 'hover:bg-accent/50 text-muted-foreground'
 									)}
 								>
 									{isActive && (
 										<motion.div
 											layoutId='sidebar-active-indicator'
-											className={cn(
-												'w-1 h-5 bg-primary rounded-full',
-												isAggieTheme && 'bg-white'
-											)}
+											className='w-1 h-5 bg-primary rounded-full'
 											transition={{ duration: 0.3 }}
 										/>
 									)}
@@ -181,20 +151,11 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection, setActiveSec
 				</nav>
 			</SidebarContent>
 
-			<SidebarFooter
-				className={cn(
-					'py-4 text-center text-sm text-muted-foreground border-t-2 border-primary',
-					isAggieTheme && 'text-white/70 border-[#3c0000]/60'
-				)}
-			>
+			<SidebarFooter className='py-4 text-center text-sm text-muted-foreground border-t-2 border-primary'>
 				<Link
 					href='/assets/files/resume.pdf'
 					download
-					className={cn(
-						'flex items-center justify-center gap-2 px-4 py-2 mb-2 rounded-lg transition-all duration-200',
-						'hover:bg-primary/10 text-primary font-medium',
-						isAggieTheme && 'hover:bg-[#732F2F]/30 text-white'
-					)}
+					className='flex items-center justify-center gap-2 px-4 py-2 mb-2 rounded-lg transition-all duration-200 hover:bg-primary/10 text-primary font-medium'
 				>
 					<Download size={16} />
 					<span>Download Resume</span>

@@ -88,7 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang='en' className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
 			<body className='select-none font-sans antialiased transition-colors' suppressHydrationWarning>
-				<ThemeProvider attribute='class' defaultTheme='system' enableSystem themes={['light', 'dark', 'aggie']}>
+				<ThemeProvider attribute='class' defaultTheme='system' enableSystem themes={['light', 'dark']}>
 					{children}
 				</ThemeProvider>
 			</body>
