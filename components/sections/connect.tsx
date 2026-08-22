@@ -67,11 +67,11 @@ const Connect = ({ content }: SectionContentProps) => {
 					animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
 					transition={{ duration: 0.4, delay: 0.1 }}
 				>
-					<Card className='h-full border-2 border-primary shadow-md'>
-						<CardHeader className='pb-2'>
-							<CardTitle className='text-xl'>Get In Touch</CardTitle>
+					<Card className='h-full border-2 border-primary shadow-md p-8 md:p-10'>
+						<CardHeader className='pb-2 px-0 pt-0'>
+							<CardTitle className='text-2xl md:text-3xl font-heading'>Get In Touch</CardTitle>
 						</CardHeader>
-						<CardContent>
+						<CardContent className='px-0 pb-0'>
 							{formSubmitted ? (
 								<motion.div
 									initial={{ opacity: 0, scale: 0.9 }}
@@ -94,17 +94,17 @@ const Connect = ({ content }: SectionContentProps) => {
 												name={field as 'name' | 'email' | 'message'}
 												render={({ field }) => (
 													<FormItem>
-														<FormLabel>
+														<FormLabel className='text-base'>
 															{field.name.charAt(0).toUpperCase() + field.name.slice(1)}
 														</FormLabel>
 														<FormControl>
 															{field.name === 'message' ? (
 																<Textarea
 																	{...field}
-																	rows={3}
+																	rows={5}
 																	placeholder='Your Message'
 																	maxLength={200}
-																	className='resize-none'
+																	className='resize-none text-base md:text-lg'
 																/>
 															) : (
 																<Input
@@ -113,6 +113,7 @@ const Connect = ({ content }: SectionContentProps) => {
 																		field.name.charAt(0).toUpperCase() +
 																		field.name.slice(1)
 																	}`}
+																	className='text-base md:text-lg'
 																/>
 															)}
 														</FormControl>
@@ -121,7 +122,7 @@ const Connect = ({ content }: SectionContentProps) => {
 												)}
 											/>
 										))}
-										<Button type='submit' className='w-full py-5 flex items-center gap-2'>
+										<Button type='submit' className='w-full text-base py-6 flex items-center gap-2'>
 											Send Message <Send size={16} />
 										</Button>
 									</form>
@@ -137,14 +138,14 @@ const Connect = ({ content }: SectionContentProps) => {
 					animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
 					transition={{ duration: 0.4, delay: 0.2 }}
 				>
-					<Card className='h-full border-2 border-primary shadow-md'>
-						<CardHeader className='pb-2'>
-							<CardTitle className='text-xl'>Connect With Me</CardTitle>
+					<Card className='h-full border-2 border-primary shadow-md p-8 md:p-10'>
+						<CardHeader className='pb-2 px-0 pt-0'>
+							<CardTitle className='text-2xl md:text-3xl font-heading'>Connect With Me</CardTitle>
 						</CardHeader>
-						<CardContent>
+						<CardContent className='px-0 pb-0'>
 							<div className='space-y-4'>
 								<div>
-									<h3 className='font-medium mb-2'>Social Media</h3>
+									<h3 className='font-medium mb-2 text-base md:text-lg'>Social Media</h3>
 									<TooltipProvider delayDuration={0}>
 										<div className='flex gap-3'>
 											{socialLinks.map(({ href, icon: Icon, label, color }, idx) => (
@@ -160,7 +161,7 @@ const Connect = ({ content }: SectionContentProps) => {
 								href={href}
 								target='_blank'
 								rel='noopener noreferrer'
-								className={`w-9 h-9 flex items-center justify-center rounded-lg text-white ${color}`}
+								className={`size-12 flex items-center justify-center rounded-lg text-white ${color}`}
 							>
 																<Icon size={18} />
 															</Link>
@@ -177,10 +178,10 @@ const Connect = ({ content }: SectionContentProps) => {
 
 								<div className='flex items-center'>
 									<MapPin size={18} className='mr-2 text-muted-foreground' />
-									<p className='text-muted-foreground'>Lubbock, Texas</p>
+									<p className='text-muted-foreground text-base md:text-lg'>Lubbock, Texas</p>
 								</div>
 
-								<p className='text-sm text-muted-foreground pt-2'>{content}</p>
+								<p className='text-base md:text-lg text-muted-foreground pt-2'>{content}</p>
 							</div>
 						</CardContent>
 					</Card>
