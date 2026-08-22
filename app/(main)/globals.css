@@ -175,10 +175,24 @@
 	}
 
 	.theme-tamu {
-		--primary: 0 100% 16%;
-		--primary-foreground: 0 0% 100%;
-		--border: 0 41% 35%;
-		--ring: 0 100% 16%;
+		--background: 0 100% 16%;
+		--foreground: 0 0% 100%;
+		--card: 0 100% 16%;
+		--card-foreground: 0 0% 100%;
+		--primary: 0 0% 100%;
+		--primary-foreground: 0 100% 16%;
+		--border: 0 0% 100%;
+		--muted-foreground: 0 0% 88%;
+		--accent: 43 86% 58%;
+		--ring: 0 0% 100%;
+		--color-background: hsl(0 100% 16%);
+		--color-foreground: hsl(0 0% 100%);
+		--color-card: hsl(0 100% 16%);
+		--color-card-foreground: hsl(0 0% 100%);
+		--color-primary: hsl(0 0% 100%);
+		--color-primary-foreground: hsl(0 100% 16%);
+		--color-border: hsl(0 0% 100%);
+		--color-muted-foreground: hsl(0 0% 88%);
 	}
 
 	.aggie {
@@ -246,6 +260,9 @@
 }
 
 @layer base {
+	html {
+		overflow-x: clip;
+	}
 	* {
 		@apply border-border;
 	}

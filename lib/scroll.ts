@@ -7,8 +7,9 @@ export function isMobileViewport() {
 
 export function scrollToSection(element: HTMLElement, { isMobile }: { isMobile: boolean }) {
 	const offset = isMobile ? MOBILE_HEADER_PX : 0;
+	const top = window.scrollY + element.getBoundingClientRect().top - offset;
 	window.scrollTo({
-		top: element.offsetTop - offset,
+		top,
 		behavior: 'smooth',
 	});
 }

@@ -6,19 +6,19 @@ import Headshot from '@/assets/images/AMCHeadshot.jpg';
 const About = ({ content }: SectionContentProps) => {
 	return (
 		<motion.div
-			className='w-full max-w-5xl mx-auto flex flex-col items-center md:grid md:grid-cols-[auto_1fr] md:items-center gap-8 px-4'
+			className='w-full flex flex-col items-center md:grid md:grid-cols-[auto_1fr] md:items-center gap-8 md:gap-12'
 			initial={{ opacity: 0, y: 16 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.6, ease: 'easeOut' }}
 		>
-			<div className='relative w-48 sm:w-56 md:w-64 aspect-[3/4] shrink-0 rounded-lg overflow-hidden'>
+			<div className='relative w-48 sm:w-56 md:w-64 lg:w-72 aspect-[3/4] shrink-0 rounded-lg overflow-hidden'>
 				<Image
 					src={Headshot}
 					alt='John McWhirter'
 					fill
 					className='object-cover object-top'
 					priority
-					sizes='(max-width: 640px) 192px, (max-width: 768px) 224px, 256px'
+					sizes='(max-width: 640px) 192px, (max-width: 768px) 224px, (max-width: 1024px) 256px, 288px'
 				/>
 			</div>
 

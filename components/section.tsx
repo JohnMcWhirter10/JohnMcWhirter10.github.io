@@ -77,20 +77,28 @@ export const Section = forwardRef<HTMLElement, SectionProps>(({ id, title, conte
 		<section
 			ref={setRefs}
 			id={id}
-			className='w-full flex flex-col md:flex-row items-center justify-center relative bg-background text-foreground'
+			className={
+				id === 'about'
+					? 'w-full min-h-[calc(100svh-4rem)] md:min-h-svh flex flex-col items-stretch justify-center relative bg-background text-foreground'
+					: id === 'connect'
+						? 'w-full min-h-svh flex flex-col items-stretch relative bg-background text-foreground'
+						: 'w-full flex flex-col items-stretch relative bg-background text-foreground'
+			}
 		>
 			<motion.div
-				className='w-full h-full max-w-7xl mx-auto px-4 py-12 md:py-16 flex flex-col items-center relative z-10'
+				className='w-full px-4 sm:px-6 md:px-8 lg:px-10 py-12 md:py-16 flex flex-col items-stretch relative z-10'
 				initial='hidden'
 				animate={isIntersecting ? 'visible' : 'hidden'}
 				variants={sectionVariants}
 			>
-				<motion.h2
-					variants={childVariants}
-					className='text-4xl md:text-5xl font-bold text-left w-full mb-6 md:mb-8'
-				>
-					{title}
-				</motion.h2>
+				{id !== 'about' && (
+					<motion.h2
+						variants={childVariants}
+						className='text-4xl md:text-5xl font-bold text-left w-full mb-6 md:mb-8'
+					>
+						{title}
+					</motion.h2>
+				)}
 
 				<motion.div variants={childVariants} className='w-full'>
 					{renderSectionContent()}
