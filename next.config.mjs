@@ -4,22 +4,6 @@ import createMDX from '@next/mdx';
 const nextConfig = {
 	// Allow .mdx extensions for files
 	pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-	images: {
-		remotePatterns: [
-			{
-				protocol: 'https',
-				hostname: 'www.python.org',
-			},
-			{
-				protocol: 'https',
-				hostname: 'raw.githubusercontent.com',
-			},
-			{
-				protocol: 'https',
-				hostname: 'cache.cloud.tamu.edu',
-			},
-		],
-	},
 	typescript: {
 		ignoreBuildErrors: true,
 	},
