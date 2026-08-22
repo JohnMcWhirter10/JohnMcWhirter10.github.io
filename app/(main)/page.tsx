@@ -1,22 +1,27 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { MainSidebar } from '@/components/main-sidebar';
 import { Section } from '@/components/section';
 import { sections } from '@/lib/data';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
+import { useActiveSection } from '@/hooks/use-active-section';
+
+const sectionIds = sections.map((section) => section.id);
 
 export default function Home() {
 	const sectionRefs = useRef<(HTMLElement | null)[]>([]);
-	const [activeSection, setActiveSection] = useState<string>('');
+	const activeSection = useActiveSection(sectionRefs, sectionIds);
+	const activeTitle = sections.find((section) => section.id === activeSection)?.title ?? 'About';
 
 	const navigateToSection = (index: number) => {
 		const sectionRef = sectionRefs.current[index];
 		if (sectionRef) {
+			const mobileOffset = window.innerWidth < 768 ? 64 : 0;
 			window.scrollTo({
-				top: sectionRef.offsetTop,
+				top: sectionRef.offsetTop - mobileOffset,
 				behavior: 'smooth',
 			});
 		}
@@ -24,19 +29,10 @@ export default function Home() {
 
 	return (
 		<SidebarProvider>
-			<MainSidebar
-				sections={sections}
-				sectionRefs={sectionRefs}
-				activeSection={activeSection}
-				setActiveSection={setActiveSection}
-			/>
+			<MainSidebar sections={sections} sectionRefs={sectionRefs} activeSection={activeSection} />
 
 			<div className='md:hidden w-full h-fit z-30 p-4 fixed top-0 bg-background/80 backdrop-blur-md shadow-xs flex items-center justify-between'>
-				<h1 className='text-2xl font-bold'>
-					{activeSection
-						? activeSection.slice(0, 1).toUpperCase() + activeSection.slice(1).toLowerCase()
-						: 'Portfolio'}
-				</h1>
+				<h1 className='text-2xl font-bold'>{activeTitle}</h1>
 				<SidebarTrigger>
 					<Menu className='h-6 w-6' />
 				</SidebarTrigger>
