@@ -175,19 +175,19 @@ export const Section = forwardRef<HTMLElement, SectionProps>(({ id, title, conte
 			ref={setRefs}
 			id={id}
 			className={cn(
-				'min-h-screen w-full flex flex-col md:flex-row items-center justify-center relative bg-background text-foreground',
+				'w-full flex flex-col md:flex-row items-center justify-center relative bg-background text-foreground',
 				theme && `theme-${theme}`
 			)}
 		>
 			<motion.div
-				className='w-full h-full max-w-7xl mx-auto px-4 py-20 md:py-24 flex flex-col items-center relative z-10'
+				className='w-full h-full max-w-7xl mx-auto px-4 py-12 md:py-16 flex flex-col items-center relative z-10'
 				initial='hidden'
 				animate={isIntersecting ? 'visible' : 'hidden'}
 				variants={sectionVariants}
 			>
 				<motion.h2
 					variants={childVariants}
-					className='text-4xl md:text-5xl lg:text-6xl font-bold text-left w-full mb-16'
+					className='text-4xl md:text-5xl font-bold text-left w-full mb-6 md:mb-8'
 				>
 					{title}
 				</motion.h2>
