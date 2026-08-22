@@ -8,6 +8,7 @@ const allowedExact = new Set([
 	'/robots.txt',
 	'/manifest.webmanifest',
 	'/manifest.json',
+	'/resume.pdf',
 ]);
 
 export function proxy(request: NextRequest) {
@@ -17,7 +18,8 @@ export function proxy(request: NextRequest) {
 		allowedExact.has(pathname) ||
 		pathname.startsWith('/_next') ||
 		pathname.startsWith('/aetheron') ||
-		pathname.startsWith('/ecen-758-dbpedia')
+		pathname.startsWith('/ecen-758-dbpedia') ||
+		/\.(pdf|png|jpe?g|gif|webp|svg|ico|txt|xml|webmanifest|woff2?)$/i.test(pathname)
 	) {
 		return NextResponse.next();
 	}

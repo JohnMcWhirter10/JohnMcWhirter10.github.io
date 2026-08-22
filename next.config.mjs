@@ -10,6 +10,16 @@ const nextConfig = {
 	async headers() {
 		return [
 			{
+				source: '/resume.pdf',
+				headers: [
+					{ key: 'Content-Type', value: 'application/pdf' },
+					{
+						key: 'Content-Disposition',
+						value: 'attachment; filename="JohnMcWhirter-Resume.pdf"',
+					},
+				],
+			},
+			{
 				source: '/:path*',
 				headers: [
 					{ key: 'X-Content-Type-Options', value: 'nosniff' },
