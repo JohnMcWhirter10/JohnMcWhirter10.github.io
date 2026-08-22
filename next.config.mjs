@@ -4,9 +4,6 @@ import createMDX from '@next/mdx';
 const nextConfig = {
 	// Allow .mdx extensions for files
 	pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-	typescript: {
-		ignoreBuildErrors: true,
-	},
 	turbopack: {
 		root: import.meta.dirname,
 	},
