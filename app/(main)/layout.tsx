@@ -1,38 +1,20 @@
 import type React from 'react';
 import type { Metadata, Viewport } from 'next';
-import { Crimson_Text, Open_Sans, Oswald, Work_Sans } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
 import { ThemeProvider } from '@/components/theme-provider';
 
-// Primary fonts for Texas A&M Aggie UX
-const oswald = Oswald({
+const inter = Inter({
 	subsets: ['latin'],
 	display: 'swap',
-	variable: '--font-oswald',
-	weight: ['200', '300', '400', '500', '600', '700'],
+	variable: '--font-sans',
 });
 
-const workSans = Work_Sans({
+const jetbrainsMono = JetBrains_Mono({
 	subsets: ['latin'],
 	display: 'swap',
-	variable: '--font-workSans',
-	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-});
-
-// Body fonts for Texas A&M Aggie UX
-const openSans = Open_Sans({
-	subsets: ['latin'],
-	display: 'swap',
-	variable: '--font-openSans',
-	weight: ['300', '400', '500', '600', '700', '800'],
-});
-
-const crimsonText = Crimson_Text({
-	subsets: ['latin'],
-	display: 'swap',
-	variable: '--font-crimsonText',
-	weight: ['400', '600', '700'],
+	variable: '--font-heading',
 });
 
 // Add a separate viewport export for Next.js 13+
@@ -104,10 +86,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang='en' suppressHydrationWarning>
-			<body
-				className={`${oswald.variable} ${openSans.variable} ${workSans.variable} ${crimsonText.variable} select-none font-sans antialiased transition-colors`}
-			>
+		<html lang='en' className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+			<body className='select-none font-sans antialiased transition-colors' suppressHydrationWarning>
 				<ThemeProvider attribute='class' defaultTheme='system' enableSystem themes={['light', 'dark', 'aggie']}>
 					{children}
 				</ThemeProvider>

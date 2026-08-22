@@ -4,12 +4,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
-	--font-sans: var(--font-openSans), Open Sans, system-ui, sans-serif;
-	--font-heading: var(--font-oswald), Oswald, system-ui, sans-serif;
-	--font-display: var(--font-workSans), Work Sans, system-ui, sans-serif;
-	--font-serif: var(--font-crimsonText), Georgia, serif;
+@theme inline {
+	--font-sans: var(--font-sans), Inter, system-ui, sans-serif;
+	--font-heading: var(--font-heading), 'JetBrains Mono', ui-monospace, monospace;
+	--font-display: var(--font-heading), 'JetBrains Mono', ui-monospace, monospace;
+	--font-serif: var(--font-sans), Inter, system-ui, sans-serif;
+}
 
+@theme {
 	--color-background: hsl(var(--background));
 	--color-foreground: hsl(var(--foreground));
 
@@ -254,7 +256,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply font-display font-semibold;
+		@apply font-heading font-semibold;
 	}
 
 	p,
@@ -265,17 +267,13 @@
 	}
 
 	blockquote {
-		@apply font-serif italic;
+		@apply italic;
 	}
 
-	/* Additional styles for the Aggie theme */
-	.aggie blockquote {
-		@apply border-l-4 border-primary pl-4 py-2 font-serif italic;
-	}
-
-	/* Button text in Aggie theme should use Work Sans for a more modern look */
-	.aggie button,
-	.aggie .button {
-		@apply font-display;
+	code,
+	kbd,
+	pre,
+	.font-mono {
+		@apply font-heading;
 	}
 }
