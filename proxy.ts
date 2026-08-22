@@ -1,13 +1,21 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
+const allowedExact = new Set([
+	'/',
+	'/favicon.ico',
+	'/sitemap.xml',
+	'/robots.txt',
+	'/manifest.webmanifest',
+	'/manifest.json',
+]);
+
+export function proxy(request: NextRequest) {
 	const pathname = request.nextUrl.pathname;
 
 	if (
-		pathname === '/' ||
+		allowedExact.has(pathname) ||
 		pathname.startsWith('/_next') ||
-		pathname.startsWith('/favicon.ico') ||
 		pathname.startsWith('/aetheron') ||
 		pathname.startsWith('/ecen-758-dbpedia')
 	) {
