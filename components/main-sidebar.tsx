@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 import type { SectionType } from '@/lib/types';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from '@/components/ui/sidebar';
 import { Download } from 'lucide-react';
-import Link from 'next/link';
 import { isMobileViewport, scrollToSection } from '@/lib/scroll';
 
 type MainSidebarProps = {
@@ -79,14 +78,14 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection }: MainSideba
 			</SidebarContent>
 
 			<SidebarFooter className='py-4 text-center text-sm text-muted-foreground border-t-2 border-primary'>
-				<Link
-					href='/assets/files/resume.pdf'
-					download
+				<a
+					href='/resume.pdf'
+					download='JohnMcWhirter-Resume.pdf'
 					className='flex items-center justify-center gap-2 px-4 py-2 mb-2 rounded-lg transition-all duration-200 hover:bg-primary/10 text-primary font-medium'
 				>
 					<Download size={16} />
 					<span>Resume</span>
-				</Link>
+				</a>
 				<p>© {new Date().getFullYear()} John McWhirter</p>
 			</SidebarFooter>
 		</Sidebar>
