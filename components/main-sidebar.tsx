@@ -7,6 +7,7 @@ import type { SectionType } from '@/lib/types';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from '@/components/ui/sidebar';
 import { Download } from 'lucide-react';
 import Link from 'next/link';
+import { isMobileViewport, scrollToSection } from '@/lib/scroll';
 
 type MainSidebarProps = {
 	sections: SectionType[];
@@ -19,11 +20,7 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection }: MainSideba
 		e.preventDefault();
 		const sectionRef = sectionRefs.current[index];
 		if (sectionRef) {
-			const mobileOffset = window.innerWidth < 768 ? 64 : 0;
-			window.scrollTo({
-				top: sectionRef.offsetTop - mobileOffset,
-				behavior: 'smooth',
-			});
+			scrollToSection(sectionRef, { isMobile: isMobileViewport() });
 		}
 	};
 
